@@ -1,0 +1,64 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        
+            <main>
+                <%if ( (topic.length > 0) || (sector.length > 0) ||(end_year.length > 0) ) { %>
+                    <div class = "container">
+                        <%if  (topic.length > 0)  { %>
+                            <!-- <div class = "container"> -->
+                                <h1 class="centered">--- <%= topic %> ---</h1>
+                            <!-- </div> -->
+                        <% } %>
+                        <%if (sector.length > 0) { %>
+                            <!-- <div class = "container"> -->
+                                <h1 class="centered">--- <%= sector %> ---</h1>
+                            <!-- </div> -->
+                        <% } %> 
+                        <%if (end_year.length > 0) { %>
+                            <!-- <div class = "container"> -->
+                                <h1 class="centered">--- <%= end_year %> ---</h1>
+                            <!-- </div> -->
+                        <% } %>
+                    </div>
+                <% } %>
+                    <br>
+                    <br>
+                <% if (entries.length > 0) { %>
+                    <div class="grid">
+                        <% for (let entry of entries) { %>
+                            
+                            <% if( (topic === "" || topic === entry.topic) && (sector === "" || sector === entry.sector) && (end_year === "" || end_year == entry.end_year) ) { %>
+                            
+                            <article class="card product-item">
+                               
+                                    <header class="card__header container1">
+                                        <h1 class="product__title"><%= entry.topic %></h1>
+                                    </header>
+                                    <div class="card__content">
+                                        <h2 class="product__price"><%= entry.country %></h2>
+                                        <h2 class="product__price">Sector:- <%= entry.sector %></h2>
+                                        <p class="product__description"><%= entry.insight %></p>
+                                    </div>
+                                    <div class="card__content">
+                                        <h2 class="product__price">Intensity <%= entry.intensity %></h2>
+                                        <p class="product__description">Start year:- <%= entry.start_year %></p>
+                                        <p class="product__description">End year:- <%= entry.end_year %></p>
+                                    </div>
+                                    <div class="card__actions">
+                                            <a href="<%= entry.url %>" class="btn">Click for Details</a>
+                                    </div>
+                                
+
+                            </article>
+                            <% } else { } %>
+                            
+                        <% } %>
+                    </div>
+                <% } else { %>
+                        <h1>No entriesFound!</h1>
+                <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

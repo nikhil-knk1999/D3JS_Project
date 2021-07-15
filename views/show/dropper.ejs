@@ -1,0 +1,52 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main class="centered">
+        <form class="product-form" action="/filtered" method="POST">
+            <label  for="topic">Select the topic </label>
+
+            <select class = "form-control container1" name="topic" id="title">
+                <option value="">empty</option>
+                <option value="oil">oil</option>
+                <option value="export">export</option>
+                <option value="growth">growth</option>
+                <option value="gas">gas</option>
+                <option value="power">power</option>
+                <option value="market">market</option>
+                <option value="vehicle">vehicle</option>
+                <option value="agriculture">agriculture</option>
+            </select>
+            <br>
+            <br>
+            <label for="sector">Select the sector </label>
+            <select class = "form-control container1" name="sector" id="title">
+                <option value="">empty</option>
+                <option value="Energy">Energy</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Financial services">Financial services</option>
+                <option value="Retail">Retail</option>
+                <option value="Food & agriculture">Food & agriculture</option>
+                <option value="Environment">Environment</option>
+                <option value="Aerospace & defence">Aerospace & defence</option>
+                <option value="Government">Government</option>
+            </select>
+            <br>
+            <br>
+            <label for="topic">Enter A end year </label>
+            <input class="container1" type="text" id="fname" name="end_year">
+            <br>
+            <br>
+            <label for="topic">Enter A Intensity measure </label>
+            <input class="container1" type="text" id="fname" name="intensity">
+            <br>
+            <br>
+            <label for="topic">Enter A Country </label>
+            <input class="container1" type="text" id="fname" name="country">
+            <br>
+            <br>
+            <button class="btn" type="submit">Submit</button>
+    </main>
+<%- include('../includes/end.ejs') %>
